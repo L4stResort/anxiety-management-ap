@@ -41,14 +41,14 @@ if (!mongoUser || !mongoPass || !mongoCluster || !mongoDB) {
 const mongoURI = `mongodb+srv://${mongoUser}:${mongoPass}@${mongoCluster}/${mongoDB}?retryWrites=true&w=majority&appName=Cluster2025`;
 
 
-
 // Conexión a MongoDB Atlas
-mongoose.connect(process.env.MONGODB_URI || '', {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
 .then(() => console.log('Conectado a MongoDB Atlas'))
 .catch((err) => console.error('Error de conexión a MongoDB:', err));
+
 
 // Ruta de prueba
 app.get('/', (_req, res) => {
