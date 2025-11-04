@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Puerto asignado por Render
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
 // Construir URI de MongoDB usando variables de entorno de Render
 const mongoUser = process.env.MONGO_USER;
