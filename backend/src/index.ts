@@ -1,35 +1,33 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import cors from 'cors';
 import userRoutes from './routes/userRoutes';
+import cors from 'cors'; // <--- Agrega esta línea
 import recommendationRoutes from './routes/recommendationRoutes';
 import cartRoutes from './routes/cartRoutes';
 
-const app = express();
-app.use(cors());
+dotenv.config();
 
-// Middleware para parsear JSON
+const app = express();
+app.use(cors()); // <--- Y esta línea
+/*app.use(cors({
+  origin: [
+    'http://localhost:3000',      // tu frontend local
+    'https://mindup.loca.lt'      // túnel público LocalTunnel
+  ],
+  credentials: true,              // si usas cookies o auth headers
+}));*/
+
+
+
+//middleware para parsear JSON
 app.use(express.json());
 
-// Puerto asignado por Render
-const PORT = Number(process.env.PORT) || 5000;
-
-// Construir URI de MongoDB usando variables de entorno de Render
-const mongoUser = process.env.MONGO_USER;
-const mongoPass = process.env.MONGO_PASS;
-const mongoCluster = process.env.MONGO_CLUSTER;
-const mongoDB = process.env.MONGO_DB;
-
-// Validar que todas las variables existan
-if (!mongoUser || !mongoPass || !mongoCluster || !mongoDB) {
-    console.error("Faltan variables de entorno para MongoDB");
-    process.exit(1);
-}
-
-const mongoURI = `mongodb+srv://${mongoUser}:${mongoPass}@${mongoCluster}/${mongoDB}?retryWrites=true&w=majority&appName=Cluster2025`;
+//puerto
+const PORT = process.env.PORT || 5000;
 
 // Conexión a MongoDB Atlas
-mongoose.connect(mongoURI, {
+mongoose.connect(process.env.MONGODB_URI || '', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -41,13 +39,14 @@ app.get('/', (_req, res) => {
     res.send('MindUp backend funcionando');
 });
 
-// Rutas de la API
-app.use('/api/users', userRoutes);
-app.use('/api/recommendations', recommendationRoutes);
-app.use('/api/carts', cartRoutes);
-
-// Servidor escuchando
-app.listen(PORT, '0.0.0.0', () => {
+//servidor
+app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
+
+app.use('/api/users', userRoutes);
+
+app.use('/api/recommendations', recommendationRoutes);
+
+app.use('/api/carts', cartRoutes);
 
