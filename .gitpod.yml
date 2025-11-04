@@ -1,0 +1,10 @@
+tasks:
+  - init: npm install --prefix backend && npm install --prefix frontend
+    command: |
+      npm run dev --prefix backend &
+      npm run dev --prefix frontend &
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 5000
+    onOpen: ignore
