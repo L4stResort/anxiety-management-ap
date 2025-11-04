@@ -1,0 +1,359 @@
+/* === General === */
+.mainContainer {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e0f7fa 0%, #f8fdfd 100%);
+  color: #064663;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Header === */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 161, 224, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  background: linear-gradient(135deg, #00a1e0, #4caf50);
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brainIcon {
+  color: white;
+  width: 24px;
+  height: 24px;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #065f7f;
+}
+
+/* Desktop navigation */
+.desktopMenu {
+  display: flex;
+  gap: 2rem;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #06698a;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #00a1e0;
+}
+
+.activeNav {
+  color: #00a1e0;
+  font-weight: 600;
+  border-bottom: 2px solid #00a1e0;
+}
+
+/* Login button */
+.loginContainer {
+  margin-left: 2rem;
+}
+
+.loginButton {
+  background: linear-gradient(135deg, #00a1e0, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.loginButton:hover {
+  background: linear-gradient(135deg, #065f7f, #00a1e0);
+  transform: scale(1.05);
+}
+
+/* Mobile button */
+.mobileButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: #065f7f;
+}
+
+/* === Mobile menu === */
+.mobileMenu {
+  position: fixed;
+  top: 70px; /* ajusta según la altura del header */
+  left: 50%; /* centrado siempre */
+  transform: translateX(-50%); /* mantiene centrado en cualquier orientación */
+  width: 85%; /* ancho proporcional */
+  max-width: 200px; /* 🔹 límite máximo para que no se expanda al girar */
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 161, 224, 0.15);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.mobileNavItem {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #06698a;
+  padding: 0.75rem 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobileNavItem:hover {
+  color: #00a1e0;
+}
+
+.activeMobile {
+  color: #00a1e0;
+  font-weight: 600;
+}
+
+.mobileLoginButton {
+  background: linear-gradient(135deg, #00a1e0, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem; /* 🔹 más angosto, ajustado al texto */
+  width: fit-content; /* 🔹 se ajusta al tamaño del contenido */
+  align-self: flex-start; /* 🔹 alineado al inicio, no centrado */
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem; /* 🔹 pequeño espacio desde el borde */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-sizing: border-box; /* evita sobresalir del padding del contenedor */
+}
+
+.mobileLoginButton:hover {
+  background: linear-gradient(135deg, #065f7f, #00a1e0);
+  transform: scale(1.03);
+}
+
+/* === Mobil User Button === */
+.mobileUserButton {
+  background-color: #00a1e0;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobileUserButton:hover {
+  background-color: #065f7f;
+  transform: scale(1.03);
+}
+
+
+
+
+/* === Hero section === */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.heroContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 161, 224, 0.1);
+  color: #065f7f;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 0.4rem;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Title */
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #065f7f;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #00a1e0, #4caf50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text */
+.heroText {
+  color: #06698a;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #00a1e0, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.primaryButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 161, 224, 0.3);
+}
+
+.secondaryButton {
+  background: none;
+  color: #00a1e0;
+  border: 2px solid #00a1e0;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: #00a1e0;
+  color: white;
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+  .desktopMenu,
+  .loginContainer {
+    display: none;
+  }
+
+  .mobileButton {
+    display: block;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroText {
+    font-size: 1rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* === User Button === */
+.userButton {
+  background-color: #00a1e0;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.userButton:hover {
+  background-color: #065f7f;
+  transform: scale(1.03);
+}

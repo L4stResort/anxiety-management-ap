@@ -1,0 +1,147 @@
+/* src/styles/carts.module.css — Paleta médica (azul, celeste, verde) */
+
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 161, 224, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #065f7f; /* Azul profundo médico */
+  font-weight: 700;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 161, 224, 0.05);
+}
+
+.cartTable th,
+.cartTable td {
+  border: 1px solid #dbeafe;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.cartTable th {
+  background: linear-gradient(135deg, #b2ebf2, #e0f7fa);
+  color: #065f7f;
+  font-weight: 600;
+}
+
+.cartTable td {
+  vertical-align: middle;
+  color: #1e293b;
+}
+
+/* === Botones === */
+
+.removeBtn {
+  background: linear-gradient(135deg, #ff6b6b, #ef4444);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.removeBtn:hover {
+  background: linear-gradient(135deg, #e63946, #dc2626);
+  transform: scale(1.05);
+}
+
+.buyBtn {
+  background: linear-gradient(135deg, #00a1e0, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 161, 224, 0.2);
+}
+
+.buyBtn:hover {
+  background: linear-gradient(135deg, #0091c9, #43a047);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 161, 224, 0.25);
+}
+
+/* === Texto === */
+.textCenter {
+  text-align: center;
+  font-size: 1rem;
+  color: #065f7f;
+}
+
+.total {
+  text-align: right;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #00a1e0;
+  font-weight: 600;
+}
+
+/* === Responsivo === */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .cartTable th,
+  .cartTable td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .cartTable th:nth-child(3),
+  .cartTable td:nth-child(3),
+  .cartTable th:nth-child(4),
+  .cartTable td:nth-child(4) {
+    display: none;
+  }
+
+  .buyBtn {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .total {
+    text-align: center;
+  }
+}
+
+
+/* === ANIMACIÓN DE APARICIÓN (igual que About) === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
