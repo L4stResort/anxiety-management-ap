@@ -26,6 +26,22 @@ app.use(express.json());
 //puerto
 const PORT = process.env.PORT || 5000;
 
+// Construir la URI de MongoDB a partir de variables separadas
+const mongoUser = process.env.MONGO_USER;
+const mongoPass = process.env.MONGO_PASS;
+const mongoCluster = process.env.MONGO_CLUSTER;
+const mongoDB = process.env.MONGO_DB;
+
+// Validar que todas las variables existan
+if (!mongoUser || !mongoPass || !mongoCluster || !mongoDB) {
+    console.error("Faltan variables de entorno para MongoDB");
+    process.exit(1);
+}
+
+const mongoURI = `mongodb+srv://${mongoUser}:${mongoPass}@${mongoCluster}/${mongoDB}?retryWrites=true&w=majority&appName=Cluster2025`;
+
+
+
 // Conexión a MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI || '', {
     useNewUrlParser: true,
