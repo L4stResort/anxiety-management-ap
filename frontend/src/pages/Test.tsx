@@ -44,8 +44,7 @@ const TestPage: React.FC<TestPageProps> = ({ user, onLogout }) => {
     const fetchResults = async () => {
       try {
         //const res = await fetch(`http://localhost:5000/api/users/${user._id}`);
-        const res = await fetch(`https://104448d8-d9fb-4d59-8d73-1b73546c0858-00-x58pe8pm1m1p.kirk.replit.dev
-/api/users/${user._id}`);
+        const res = await fetch(`https://104448d8-d9fb-4d59-8d73-1b73546c0858-00-x58pe8pm1m1p.kirk.replit.dev/api/users/${user._id}`);
         if (!res.ok) throw new Error('Error al obtener resultados');
         const data = await res.json();
         setResults(data.results || []);
