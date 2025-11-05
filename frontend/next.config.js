@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    // Permite cualquier origen en modo desarrollo
-    allowedDevOrigins: ['*']
-  }
+  reactStrictMode: true
 }
 
 module.exports = nextConfig;
